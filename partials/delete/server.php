@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 include __DIR__."/../database.php";
 
 
@@ -12,16 +9,16 @@ if(empty($_POST["id"])){
 
 $id = $_POST["id"];
 
-$sql = "DELETE FROM stanze WHERE id = $id";
-$result = $conn->query($sql);
+$sql = "DELETE FROM stanze WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);   
+$stmt->execute();
 
-if ($result){
-    echo "ok";
+if ($stmt && $stmt->affected_rows>0){
+    header("Location: $basepath/index.php?roomId=$id");
 } else {
     echo "not ok";
 }
 
 $conn->close();
 ?>
-
-<a href="../../index.php">Indietro</a>
