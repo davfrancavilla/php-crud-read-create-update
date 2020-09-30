@@ -17,7 +17,6 @@ $stmtSearch->execute();
 $stmtSearch->store_result();
 $stmtSearch->bind_result($roomNumber);
 $stmtSearch->fetch();
-$stmtSearch->free_result();
 
 $sqlDelete = "DELETE FROM stanze WHERE id = ?";
 $stmtDelete = $conn->prepare($sqlDelete);
