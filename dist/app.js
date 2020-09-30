@@ -10980,9 +10980,9 @@ return jQuery;
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  setTimeout(function () {
+  $(".note button").on("click", function () {
     $(".note").slideUp();
-  }, 3000);
+  });
 });
 
 /***/ }),

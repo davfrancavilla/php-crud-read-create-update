@@ -9,6 +9,7 @@ include __DIR__."/partials/home/server.php";
             $stanza_cancellata = $_GET["roomNumber"]?>
             <div class="alert alert-warning note">
                 <?php echo "Hai cancellato la stanza numero $stanza_cancellata" ?>
+                <button class="btn btn-dark">Ok</button>
             </div>
         <?php }?>
         <table class="table">

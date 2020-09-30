@@ -2,7 +2,7 @@ var $ = require("jquery");
 
 
 $(document).ready(function(){
-    setTimeout(function () { 
+    $(".note button").on("click", function(){
         $(".note").slideUp();
-    }, 3000);
+    });
 })
