@@ -10905,3 +10905,8 @@ a.text-dark:focus {
   align-items: center;
 }
 
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+

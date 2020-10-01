@@ -24,9 +24,9 @@ function removeId($conn, $table, $id, $basepath, $roomNumber){
     $stmtSearch = $conn->prepare($sqlSearch);
     $stmtSearch->bind_param("i", $id);
     $stmtSearch->execute();
-    $stmtSearch->store_result();
     $stmtSearch->bind_result($roomNumber);
     $stmtSearch->fetch();
+    $stmtSearch->close();
 
     $sqlDelete = "DELETE FROM $table WHERE id = ?";
     $stmtDelete = $conn->prepare($sqlDelete);
@@ -39,7 +39,7 @@ function removeId($conn, $table, $id, $basepath, $roomNumber){
     } else {
         echo "not ok";
     }
-    $stmtSearch->close();
+
     $stmtDelete->close();
     $conn->close();
 }
@@ -55,7 +55,6 @@ function getId($conn, $table, $id){
     } else {
         $row = false;
     }
-    $stmt->close();
     $conn->close();
     return $row;
 
